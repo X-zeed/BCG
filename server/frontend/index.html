@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bottle donation machine with recycling system</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__brand">
+            <img src="assets/logo.png" alt="Logo" class="navbar__logo">
+            <a href="index.html" class="navbar__title">Bottle donation machine dashboard</a>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item"><a href="data.html">Home</a></li>
+            <li class="navbar__item"><a href="Statistics.html">Statistics</a></li>
+            <li class="navbar__item"><a href="Price.html">Price</a></li>
+            <li class="navbar__item"><a href="login.html">Your Profile</a></li>
+        </ul>
+    </nav>
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>Recycle point</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="assets/search.png" alt="Search">
+            </div>
+            <button id="myButton">Load Data</button>
+        </section>
+        <section class="table__body">
+            <div id="loadingIndicator" class="loading">Loading data...</div>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

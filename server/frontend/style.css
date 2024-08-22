@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('assets/html_table.jpg') center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4ec9f5; /* Primary blue */
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.8rem;
+}
+
+.navbar__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar__menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar__item {
+    margin-left: 1rem;
+}
+
+.navbar__item a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar__item a:hover {
+    color: #e0e7ff; /* Lighter blue */
+}
+
+/* Adjustments to main to account for navbar height */
+main.table {
+    margin-top: 4rem; /* Adjust based on the height of your navbar */
+    width: 80vw;
+    height: 90vh;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: .8rem;
+    box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.table__header {
+    width: 100%;
+    height: 10%;
+    background-color: #4ec9f5; /* Primary blue */
+    color: #ffffff;
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.table__header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: #ffffff; /* White background for input group */
+    padding: 0 .8rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 .1rem .4rem rgba(0, 0, 0, 0.2);
+    transition: .2s;
+}
+
+.table__header .input-group img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.table__header .input-group input {
+    width: 100%;
+    padding: 0 .5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.table__header button#myButton {
+    background-color: #4ec9f5; /* Primary blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.table__header button#myButton:hover {
+    background-color: #3da9e4; /* Slightly darker blue */
+    transform: scale(1.05);
+}
+
+.table__header button#myButton:focus {
+    outline: none;
+}
+
+.table__body {
+    width: 95%;
+    max-height: calc(90% - 1.6rem);
+    background-color: #f9f9f9; /* Light gray background for table body */
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+}
+
+.table__body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #4ec9f5; /* Primary blue */
+}
+
+.table__body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #ffbc00; /* Bright yellow */
+    color: #000000;
+    padding: 1rem;
+    text-align: center; /* Center-align text in header cells */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+thead th:hover {
+    background-color: #ffde59; /* Lighter yellow */
+    color: #333333;
+}
+
+thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: .5rem;
+    transition: .2s ease-in-out;
+}
+
+thead th:hover span.icon-arrow {
+    border: 1.4px solid #333333;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f4f7; /* Light gray for even rows */
+}
+
+tbody tr:hover {
+    background-color: #e0e7ff; /* Slightly darker blue on hover */
+}
+
+tbody td {
+    padding: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    transition: background-color 0.3s;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4ec9f5; /* Primary blue */
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
+    border: 3px solid #4ec9f5;
+    border-radius: 50%;
+    border-top: 3px solid transparent;
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+}
+
+.export__file {
+    position: relative;
+}
+
+.export__file .export__file-btn {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: #ffbc00 url('assets/export.png') center / 80% no-repeat;
+    border-radius: 50%;
+    transition: .2s ease-in-out;
+}
+
+.export__file .export__file-btn:hover {
+    background-color: #ffde59; /* Lighter yellow on hover */
+    transform: scale(1.1);
+}
+
+.export__file .export__file-options {
+    position: absolute;
+    right: 0;
+    width: 12rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    text-align: center;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(.8);
+    transform-origin: top right;
+    transition: .2s;
+}
+
+.export__file .export__file-btn:focus + .export__file-options {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 100;
+}
+
+.export__file .export__file-options label {
+    display: block;
+    width: 100%;
+    padding: .6rem 0;
+    background-color: #f9f9f9; /* Light gray for options */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: .2s ease-in-out;
+}
+
+.export__file .export__file-options label:first-of-type {
+    padding: 1rem 0;
+    background-color: #4ec9f5; /* Primary blue for the first option */
+    color: #ffffff;
+}
+
+.export__file .export__file-options label:hover {
+    background-color: #e0e7ff; /* Lighter blue on hover */
+    cursor: pointer;
+}
+
+.export__file .export__file-options img {
+    width: 2rem;
+    height: auto;
+}
